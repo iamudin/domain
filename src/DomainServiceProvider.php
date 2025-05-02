@@ -10,12 +10,16 @@ class DomainServiceProvider extends ServiceProvider
     protected function registerRoutes()
     {
         Route::middleware(['web','admin.domain'])
-        ->domain(parse_url(config('app.url'), PHP_URL_HOST))
         ->prefix(admin_path())
         ->group(function () {
             $this->loadRoutesFrom(__DIR__.'/routes/admin.php');
         });
 
+        Route::middleware(['web'])
+        ->prefix('domain')
+        ->group(function () {
+            $this->loadRoutesFrom(__DIR__.'/routes/web.php');
+        });
     }
     protected function registerResources()
     {

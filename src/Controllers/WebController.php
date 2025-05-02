@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 class WebController extends Controller
 {
-public function index(Request $request){
-    return view('simpel::web.home');
+public function registrasi(Request $request){
+    return 'dffd';
 }
 }
