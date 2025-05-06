@@ -19,14 +19,10 @@ class DomainMiddleware
         if($request->getHost()==parse_url(config('app.url'), PHP_URL_HOST)){
             config(['domain.route'=>'panel.domain.']);
             config(['domain.path_url'=>'domain']);
-            // config('modules.extension_module')
         }
         if(!$request->user()->isAdmin() && $request->user()->level != 'domain'){
             return to_route($request->user()->level .'.dashboard');
         }
-
-
-
         $response =  $next($request);
         if ($response->headers->get('Content-Type') == 'text/html; charset=UTF-8') {
             $content = $response->getContent();

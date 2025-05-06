@@ -6,12 +6,12 @@ use Leazycms\Domain\Controllers\PengelolaController;
 use Leazycms\Domain\Controllers\InvoiceController;
 $contexts = [
     [
-        'domain' => parse_url(config('app.url'), PHP_URL_HOST), // untuk domain utama
+        'domain' => parse_url(config('app.url'), PHP_URL_HOST),
         'prefix' => admin_path().'/domain',
         'name'   => 'panel.domain.',
     ],
     [
-        'domain' => parse_url(config('domain.url'), PHP_URL_HOST), // wildcard domain selain domain utama
+        'domain' => parse_url(config('domain.url'), PHP_URL_HOST), 
         'prefix' => null,
         'name'   => null,
     ],
@@ -30,14 +30,3 @@ foreach ($contexts as $ctx) {
         Route::resource('invoice', InvoiceController::class);
     });
 }
-
-
-// $path = 'domain';
-// Route::prefix(admin_path())->prefix($path)->group(function()use($path){
-//     Route::get('/', [AdminController::class, 'index']);
-//     Route::get('dashboard', [AdminController::class, 'index'])->name($path.'.dashboard');
-//     Route::resource('daftar', DomainController::class);
-//     Route::resource('pengelola', PengelolaController::class);
-//     Route::resource('invoice', InvoiceController::class);
-// });
-
