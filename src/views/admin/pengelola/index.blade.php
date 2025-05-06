@@ -41,7 +41,7 @@
             <td>{{ $row->updated_at->format('d F Y H:i') }}</td>
             <td>
                 <div class="btn-group">
-                    <a href="{{ route('pengelola.edit',$row->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
+                    <a href="{{ route(config('domain.route').'pengelola.edit',$row->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
                 </div>
             </td>
         </tr>

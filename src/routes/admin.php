@@ -4,14 +4,40 @@ use Leazycms\Domain\Controllers\AdminController;
 use Leazycms\Domain\Controllers\DomainController;
 use Leazycms\Domain\Controllers\PengelolaController;
 use Leazycms\Domain\Controllers\InvoiceController;
-use Leazycms\Domain\Models\Invoice;
+$contexts = [
+    [
+        'domain' => parse_url(config('app.url'), PHP_URL_HOST), // untuk domain utama
+        'prefix' => admin_path().'/domain',
+        'name'   => 'panel.domain.',
+    ],
+    [
+        'domain' => parse_url(config('domain.url'), PHP_URL_HOST), // wildcard domain selain domain utama
+        'prefix' => null,
+        'name'   => null,
+    ],
+];
 
-$path = 'domain';
-Route::prefix($path)->group(function()use($path){
-    Route::get('/', [AdminController::class, 'index']);
-    Route::get('dashboard', [AdminController::class, 'index'])->name($path.'.dashboard');
-    Route::resource('daftar', DomainController::class);
-    Route::resource('pengelola', PengelolaController::class);
-    Route::resource('invoice', InvoiceController::class);
-});
+foreach ($contexts as $ctx) {
+    Route::group([
+        'domain' => $ctx['domain'],
+        'prefix' => $ctx['prefix'],
+        'as'     => $ctx['name'],
+    ], function () {
+        Route::get('/', [AdminController::class, 'index']);
+        Route::get('dashboard', [AdminController::class, 'index'])->name('domain.dashboard');
+        Route::resource('daftar', DomainController::class);
+        Route::resource('pengelola', PengelolaController::class);
+        Route::resource('invoice', InvoiceController::class);
+    });
+}
+
+
+// $path = 'domain';
+// Route::prefix(admin_path())->prefix($path)->group(function()use($path){
+//     Route::get('/', [AdminController::class, 'index']);
+//     Route::get('dashboard', [AdminController::class, 'index'])->name($path.'.dashboard');
+//     Route::resource('daftar', DomainController::class);
+//     Route::resource('pengelola', PengelolaController::class);
+//     Route::resource('invoice', InvoiceController::class);
+// });
 

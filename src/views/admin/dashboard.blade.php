@@ -6,7 +6,7 @@
 
 </div>
 <div class="row mt-4">
-        <div title="Klik untuk selengkapnya" onclick="location.href='{{ route('daftar.index') }}'" class="pointer col-md-6 col-lg-6">
+        <div title="Klik untuk selengkapnya" onclick="location.href='{{ route(config('domain.route').'daftar.index') }}'" class="pointer col-md-6 col-lg-6">
             <div class="widget-small danger coloured-icon"><i class="icon fa fa-globe fa-3x"></i>
               <div class="info pl-3">
                 <p class="mt-2 text-muted">Domain</p>
@@ -15,7 +15,7 @@
             </div>
 
     </div>
-    <div title="Klik untuk selengkapnya" onclick="location.href='{{ route('invoice.index') }}'"  class="pointer col-md-6 col-lg-6">
+    <div title="Klik untuk selengkapnya" onclick="location.href='{{ route(config('domain.route').'invoice.index') }}'"  class="pointer col-md-6 col-lg-6">
         <div class="widget-small warning coloured-icon"><i class="icon fa fa-dollar fa-3x"></i>
           <div class="info pl-3">
             <p class="mt-2 text-muted">Tagihan</p>

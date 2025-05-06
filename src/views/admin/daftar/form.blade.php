@@ -5,7 +5,7 @@
 </div>
 
 <div class="col-lg-12 mt-4">
-<form action="{{ $data ? route('daftar.update',$data->id)  : route('daftar.store')}}" method="post" class="form" enctype="multipart/form-data">
+<form action="{{ $data ? route(config('domain.route').'daftar.update',$data->id)  : route(config('domain.route').'daftar.store')}}" method="post" class="form" enctype="multipart/form-data">
     @if($data)
     @method('PUT')
     @endif

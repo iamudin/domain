@@ -5,7 +5,7 @@
 </div>
 
 <div class="col-lg-12 mt-4">
-<form action="{{ $data ? route('pengelola.update',$data->id)  : route('pengelola.store')}}" method="post" class="form" enctype="multipart/form-data">
+<form action="{{ $data ? route(config('domain.route').'pengelola.update',$data->id)  : route(config('domain.route').'pengelola.store')}}" method="post" class="form" enctype="multipart/form-data">
     @if($data)
     @method('PUT')
     @endif

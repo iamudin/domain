@@ -52,7 +52,7 @@
             </td>
             <td>
                 <div class="btn-group">
-                    <a href="{{ route('invoice.edit',$row->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
+                    <a href="{{ route(config('domain.route').'invoice.edit',$row->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
                 </div>
             </td>
         </tr>
@@ -70,7 +70,7 @@
 
     <tfoot>
         <tr>
-            <td colspan="9" align="center"><a href="{{ route('invoice.create') }}" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> TAMBAH INVOICE</a></td>
+            <td colspan="9" align="center"><a href="{{ route(config('domain.route').'invoice.create') }}" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> TAMBAH INVOICE</a></td>
         </tr>
     </tfoot>
     @endif

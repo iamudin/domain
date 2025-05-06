@@ -41,13 +41,13 @@
             <td>{{ $row->updated_at->format('d F Y H:i') }}</td>
             <td>
                 <div class="btn-group">
-                    <a href="{{ route('daftar.edit',$row->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
+                    <a href="{{ route(config('domain.route').'daftar.edit',$row->id) }}" class="btn btn-sm btn-warning"> <i class="fa fa-edit"></i> </a>
                 </div>
             </td>
         </tr>
         @empty
         <tr>
-            <td colspan="9" align="center">@if(!auth()->user()->isAdmin()) <a href="{{ route('daftar.create') }}" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> TAMBAH DOMAIN</a> @else Belum ada data @endif</td>
+            <td colspan="9" align="center">@if(!auth()->user()->isAdmin()) <a href="{{ route(config('domain.route').'daftar.create') }}" class="btn btn-sm btn-primary"> <i class="fa fa-plus"></i> TAMBAH DOMAIN</a> @else Belum ada data @endif</td>
         </tr>
         @endforelse
     </tbody>

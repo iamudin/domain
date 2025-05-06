@@ -1,35 +1,38 @@
 <?php
-$path = 'domain';
 return [
     'name'=>'Domain',
-    'path'=>$path,
+    'url'=>env('APP_URL_DOMAIN',null),
+    'path'=>'domain',
+    'path_url'=>null,
     'icon' => 'fa-globe',
-    'description' => 'Sistem Informasi Jadwal Roro',
+    'route' => null,
+    'title' => env('APP_TITLE_DOMAIN','Domain'),
+    'description' => env('APP_DESCRIPTION_DOMAIN','Layanan Pendaftaran Domain'),
     'module' =>
     array(
         [
             'name' => 'Dashboard',
-            'route' => $path . '.dashboard',
+            'route' => 'domain.dashboard',
             'icon' => 'fa-dashboard',
-            'path' => $path . '/dashboard',
+            'path' => 'dashboard',
         ],
         [
             'name' => 'Daftar Domain',
             'route' => 'daftar.index',
             'icon' => 'fa-globe',
-            'path' => $path . '/daftar',
+            'path' =>  'daftar',
         ],
         [
             'name' => 'Pembayaran Domain',
             'route' => 'invoice.index',
             'icon' => 'fa-dollar',
-            'path' => $path . '/invoice',
+            'path' => 'invoice',
         ],
         [
             'name' => 'Pengelola',
             'route' => 'pengelola.index',
             'icon' => 'fa-user',
-            'path' => $path . '/pengelola',
+            'path' => 'pengelola',
         ],
 
     )

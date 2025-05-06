@@ -5,7 +5,7 @@ use App\Http\Controllers\Controller;
 
 class WebController extends Controller
 {
-public function registrasi(Request $request){
+public function home(Request $request){
     return 'dffd';
 }
 }
