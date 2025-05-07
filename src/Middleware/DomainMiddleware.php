@@ -20,7 +20,7 @@ class DomainMiddleware
             config(['domain.route'=>'panel.domain.']);
             config(['domain.path_url'=>'domain']);
         }
-        if(!$request->user()->isAdmin() && $request->user()->level != 'domain'){
+        if(auth()->check() && !$request->user()->isAdmin() && $request->user()->level != 'domain'){
             return to_route($request->user()->level .'.dashboard');
         }
         $response =  $next($request);
